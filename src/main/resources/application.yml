@@ -1,0 +1,22 @@
+spring:
+  jpa:
+    database: postgresql
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/test
+    username: root
+    password:
+
+server:
+  port: 8080
+
+
