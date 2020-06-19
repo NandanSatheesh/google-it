@@ -1,0 +1,25 @@
+CREATE TABLE team (
+	id SERIAL PRIMARY KEY,
+	team_name VARCHAR(50) UNIQUE NOT NULL,
+	email VARCHAR(50) UNIQUE NOT NULL,
+	PASSWORD VARCHAR(50) NOT NULL,
+	created_on TIMESTAMP NOT NULL,
+	last_login TIMESTAMP,
+	team_score INTEGER DEFAULT 0 NOT NULL
+);
+
+CREATE TABLE question (
+	id integer PRIMARY KEY,
+	image_url VARCHAR(50) UNIQUE NOT NULL,
+	image_ans VARCHAR(50) UNIQUE NOT NULL,
+	image_hint VARCHAR(50) NOT NULL
+	score INTEGER DEFAULT 0 NOT NULL
+);
+
+CREATE TABLE submission (
+	id SERIAL PRIMARY KEY,
+	question_id REFERENCES question(id),
+	team_id REFERENCES team(id),
+	submission_status VARCHAR(10),
+	timestamp TIMESTAMP
+);
